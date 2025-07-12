@@ -4,10 +4,11 @@ import path from "path";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
+  base: "/", // ✅ This is the fix!
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5001", // adjust if backend port differs
+        target: "http://localhost:5001",
         changeOrigin: true,
         secure: false,
       },
